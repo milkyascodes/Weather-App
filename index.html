@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App | by miki</title>
+</head>
+<body oncontextmenu="return false">
+    <div class="toggle"><i id="toggle"></i></div>
+    <div class="wrapper">   
+        <header class="flex">
+            <i  class="bx bx-left-arrow-alt" id="backBtn"></i>Weather App
+        </header>
+        <section class="form">
+            <p class="info-txt">Please enter a valid city name</p>
+            <input type="text" placeholder="Enter city name" spellcheck="false" required id="cityName" autocomplete="off"> 
+            <button id="weatherBtn">Get Weather</button>
+        </section>
+
+        <!-- weather -->
+        <section class="weather flex">
+            <img src="" alt="weather-icon" id="weatherIcon">
+            <div class="temp">
+                <span id="weatherDeg" class="numb"></span>
+                <span id="degree" class="deg">°C</span>
+            </div>
+            <div class="description" id="description"></div>
+            <div class="location flex">
+                <i class="bx bx-map"></i>
+                <span id="location"></span>
+            </div>
+
+            <!-- extra weather -->
+
+            <div class="bottom-details flex">
+
+                <div class="feels column flex">
+                    <i class="bx bxs-thermometer"></i>
+                    <div class="details">
+                        <div class="temp">
+                            <span class="numb" id="tempDeg"></span>
+                            <span id="degree2"  class="deg">°C</span>
+                        </div>
+                        <p>Feels like</p>
+                    </div>
+                </div>
+
+                <div class="humidity column flex">
+                    <i class="bx bxs-droplet-half"></i>
+                    <div class="details">
+                        <div class="temp">
+                            <span class="numb" id="humidDeg"></span>
+                            <span class="deg">%</span>
+                        </div>
+                        <p>Humidity</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <h3>Weather App </h3>
+        100 day challenge 2021 &copy;  Miki
+    </footer>
+
+
+    <script src="./app.js"></script>
+</body>
+</html>
