@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --error: #911;
+  --pending: #497;
+  --theme: #169;
+  --bg: #1b1b1b;
+  --card: #222;
+  --light: #333;
+  --color: #ccc;
+  --text: #fff;
+}
+body.darkmode {
+  --error: #911;
+  --pending: #497;
+  --theme: #169;
+  --bg: #eee;
+  --card: #fff;
+  --light: #ddd;
+  --color: #666;
+  --text: #222;
+}
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+body {
+  transition: color ease 1s, background-color ease 1s;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle {
+  position: absolute;
+  z-index: 6;
+  top: 2rem;
+  right: 2rem;
+}
+.toggle i {
+  font-size: 2.2rem;
+  cursor: pointer;
+  color: var(--color);
+}
+.wrapper {
+  background: var(--card);
+  width: min(400px, 85%);
+  z-index: 4;
+  transition: color ease 1s, background-color ease 1s;
+}
+.wrapper header {
+  font-size: 3rem;
+  color: var(--color);
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--light);
+  transition: color ease 1s, border ease 1s;
+}
+
+.wrapper header i {
+  cursor: pointer;
+  font-size: 0;
+  margin-right: 8px;
+  color: #aaa;
+}
+.wrapper .form {
+  margin: 1rem 2.5rem 2rem;
+}
+
+.form :where(input, button) {
+  width: 100%;
+  height: 4rem;
+  border: none;
+  outline: none;
+  padding: 2rem;
+  margin: 2rem 0;
+  display: grid;
+  place-content: center;
+  text-transform: capitalize;
+  text-align: center;
+  transition: color ease 1s, background-color ease 1s;
+}
+.form input {
+  background: var(--light);
+  color: var(--color);
+}
+.form input:is(:focus, :valid) {
+  transition: all 0.4s ease;
+  background: #ccc;
+  color: #111;
+}
+.form button {
+  cursor: pointer;
+  background: var(--theme);
+  color: #fff;
+  height: 4.5rem;
+  font-weight: bold;
+}
+.form button:active {
+  transform: scale(0.98);
+}
+.form .line {
+  background: var(--light);
+  width: 100%;
+  height: 1px;
+  margin: 3rem 0;
+  box-sizing: border-box;
+}
+.line::before {
+  content: "or";
+  padding: 0 1.5rem;
+  font-size: 2rem;
+  background: #222;
+  color: #888;
+  font-weight: 200;
+}
+.info-txt {
+  letter-spacing: 0.5px;
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 500;
+  padding: 1rem;
+  text-align: center;
+  display: none;
+}
+.info-txt.error {
+  background: var(--error);
+  display: block;
+}
+.info-txt.pending {
+  background: var(--pending);
+  display: block;
+}
+.wrapper.active .form {
+  display: none;
+}
+.wrapper.active header {
+  font-size: 2rem;
+  justify-content: unset;
+}
+.wrapper.active header i {
+  font-size: 3rem;
+}
+.wrapper.active .weather {
+  display: flex;
+}
+/* weather */
+.weather {
+  margin: 3rem 0 0;
+  display: none;
+  flex-direction: column;
+}
+.weather img {
+  max-width: 125px;
+}
+.weather .temp {
+  display: flex;
+  font-size: 5rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  color: var(--text);
+}
+.weather .numb {
+  font-weight: 700;
+}
+.weather .deg {
+  font-size: 4rem;
+  margin: 1rem 0.5rem 0;
+}
+.description {
+  font-size: 1.7rem;
+  margin: 1rem 0;
+  font-weight: 700;
+  color: var(--color);
+}
+
+.weather .location {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--theme);
+}
+.location i {
+  font-size: 2.2rem;
+  margin-right: 0.5rem;
+  color: var(--theme);
+}
+.bottom-details {
+  width: 100%;
+  justify-content: space-evenly;
+  color: #999;
+}
+.bottom-details .numb {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #888;
+}
+.bottom-details .deg {
+  font-size: 2rem;
+  margin: 0 0.4rem;
+  color: #888;
+}
+.column {
+  padding: 2rem 0;
+}
+.column .temp {
+  margin: 0;
+}
+
+.column p {
+  color: #fff;
+  color: var(--color);
+  font-size: 1.4rem;
+}
+.column i {
+  color: var(--pending);
+  font-size: 4rem;
+  margin-right: 0.6rem;
+}
+.feels {
+  width: 100%;
+}
+.humidity {
+  width: 100%;
+  border-left: 1px solid var(--light);
+  transition: color ease 1s, border-color ease 1s;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem 0 2rem;
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  width: 100%;
+  font-weight: 300;
+  z-index: 1;
+}
